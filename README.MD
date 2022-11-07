@@ -1,21 +1,33 @@
-# Change Engine API
+# Change Engine  APi :moneybag: :pound:
 
-ChangeEngine - use the API to manage change in your vending machine
+ChangeEngine functionality - use the API to manage change in your vending machine:
 
-# Test it!
+- Initialise the vending machine to a known state (which coin, and how many)
+- Register coins that have been deposited by a user.
+- Return the correct change to a user as coins when an order is received and remove the coins from the
+machine
 
-main.py - is a file holding a simple test program that tries to imitate a vending machine's behaviour.
-The API is set up to use only British £ coins, which are 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01.
+# Check out functionality
 
-## Configuration
+[**main.py**](./main.py) - is a file holding a simple test program that utilise API and imitates a vending machine funcionality.
+
+## Setup
 
 The program was run on:
 - Windows 11, Python 3.10.8
-- Oracle Linux 7.9
+- Oracle Linux 7.9, Python 3.6.8
 
-To run the program, change the directory to the folder where main.py resides and type:
+If you do not have Python installed on the machine, please download it from [here](https://www.python.org/downloads/). You will not need any additional python libraries.
 
-SIDE NOTE: For the best experience, please maximise your terminal window
+## Configuration:
+
+[config.py](./config.py) -  holds your configuration for initial coins in the machine and Vending machine products offering. The initial denomination of coins can not be changed, only the amount. You can also add or delete items from the `menu`; however, follow the existing syntax.
+
+## Run
+
+To run the program, change the directory to the folder where [**main.py**](./main.py) resides and type:
+
+**SIDE NOTE: For the best experience, please maximise your terminal window**
 
 ```bash
 python3 main.py
@@ -25,12 +37,6 @@ or
 ```bash
 python main.py
 ```
-
-If you do not have Python installed on the machine, please download it from [here.](https://www.python.org/downloads/). You will not need any additional python libraries.
-
-Configuration:
-
-[config.py](./config.py) -  holds your configuration for initial coins in the machine and Vending machine products offering. The initial denomination of coins can not be changed, only the amount. You can also add or delete items from the `menu`; however, follow the existing syntax.
 
 If your setup is correct, upon running the test program, you should see the following:
 
@@ -72,6 +78,7 @@ The program runs continuously. To exit the program, either press `ctr + C` or ki
 |[config.py](./config.py)| Holds setup for initial coins in the machine and products available  | 
 |[main.py](./main.py)| Program to test the API  | 
 
+# API Reference
 
 ### Methods
 
