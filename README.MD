@@ -78,7 +78,7 @@ The program runs continuously. To exit the program, either press `ctr + C` or ki
 |[config.py](./config.py)| Holds setup for initial coins in the machine and products available  | 
 |[main.py](./main.py)| Program to test the API  | 
 
-# API Reference
+# Change engine API Reference
 
 ### Methods
 
