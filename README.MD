@@ -91,12 +91,12 @@ The program runs continuously. To exit the program, either press `ctr + C` or ki
 | [get_coins_status()](#get_coins_status) | Returns coins available in the machine      |
 | [get_coins_denomination()](#get_coins_status) | Returns available coins allowed denomination      |
 
-#### \__init__(init_coins)
+### <ins>\__init__(**init_coins**)</ins>
 Creates a new *ChangeEngine* client
 
-Parameters:
+**Parameters**:
 
-**init_coins**(dict) - It will initialise the number of coins in a machine. You must provide the amount for each coin stated in the [static file](./api/Statics.py) e.g.:
+`init_coins(**dict**)` - It will initialise the number of coins in a machine. You must provide the amount for each coin stated in the [static file](./api/Statics.py) e.g.:
 
 ```python
 initial_coins = {
@@ -111,53 +111,53 @@ initial_coins = {
                 }
 ```
 
-### return_change(**product_price**)
+### <ins>return_change(**product_price**)</ins>
 
 Calculates and returnes change for a customer
 
-Parameters:
+**Parameters**:
 
-product_price(float) - Product price must be a float or an int. The argument will be rejected if negative or greater than the user deposit.
+`product_price(float)` - Product price must be a float or an int. The argument will be rejected if negative or greater than the user deposit.
 
-Returns:
+**Returns**:
 
-A List consisting of a [Change](./api/Change.py) object and bool value. The bool value is `True` if the change will be given. If `False`, this will indicate that there were not enough coins to return accurate change; hence, the Change object consists of the amount the user deposited. 
+A`List` consisting of a [Change](./api/Change.py) object and bool value. The bool value is `True` if the change will be given. If `False`, this will indicate that there were not enough coins to return accurate change; hence, the Change object consists of the amount the user deposited. 
 
 
 
-###  insert_coin(**coin**)
+###  <ins>insert_coin(**coin**)</ins>
 
 Takes customer deposit
 
-Parameters:
+**Parameters**:
 
-coin(**float**) - coin must be a float or an int. The argument will be rejected if it is not a value of British currency coins [reflected here.](./api/Statics.py) 
+`coin(**float**)` - a coin must be a float or an int. The argument will be rejected if it is not a value of British currency coins [reflected here.](./api/Statics.py) 
 
-Returns: None
+**Returns**: `None`
 
-###  get_user_balance()
+###  <ins>get_user_balance()</ins>
 
 Returns balance deposited by the customer
 
-Parameters: None
+**Parameters**: `None`
 
-Returns: float
+**Returns**: `float`
 
-###  get_coins_status()
+###  <ins>get_coins_status()</ins>
 
 Returns coins available in the machine
 
-Parameters: None
+**Parameters**: `None`
 
-Returns: dict
+**Returns**: `dict`
 
-###  get_coins_denomination()
+###  <ins>get_coins_denomination()</ins>
 
 Returns coins denomination allowed to use 
 
-Parameters: None
+**Parameters**: `None`
 
-Returns: list
+**Returns**: `list`
 
 
 
@@ -173,28 +173,28 @@ Returns: list
 | [get_total()](#get_total)     | Returns value of customer change      |
 | [get_change()](#get_change) | Returns customer change coin distribution     |
 
-#### \__init__(change)
+### <ins>\__init__(change)</ins>
 Creates a new *Change* object
 
-Parameters:
+**Parameters**:
 
-**change**(dict) - The dictionary reflects coin distribution in a customer change. The `key` would be a coin nominal, e.g. 0.2 and `value` is the number of coins in a change.
+`change(**dict**)` - The dictionary reflects coin distribution in a customer change. The `key` would be a coin nominal, e.g. 0.2 and `value` is the number of coins in a change.
 
-###  get_total()
+###  <ins>get_total()</ins>
 
 Returns value of customer change
 
-Parameters: None
+**Parameters**: `None`
 
-Returns: float
+**Returns**: `float`
 
-###  get_change()
+###  <ins>get_change()</ins>
 
 Returns customer change coin distribution
 
-Parameters: None
+**Parameters**: `None`
 
-Returns: dict
+**Returns**: `dict`
 
 
 
