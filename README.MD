@@ -49,7 +49,7 @@ If you do not have Python installed on the machine, please download it from [her
 
 ## Run
 
-To run the program, change the directory to the folder where [**main.py**](./main.py) resides and type:
+To run the program, open terminal window change the directory to the folder where [**main.py**](./main.py) resides and type:
 
 **SIDE NOTE: For the best experience, please maximise your terminal window**
 
@@ -120,7 +120,7 @@ Creates a new *ChangeEngine* client
 
 **Parameters**:
 
-`init_coins(**dict**)` - It will initialise the number of coins in a machine. You must provide the amount for each coin stated in the [static file](./api/Statics.py) e.g.:
+`init_coins(dict)` - It will initialise the number of coins in a machine. You must provide the amount for each coin stated in the [static file](./api/Statics.py) e.g.:
 
 ```python
 initial_coins = {
@@ -155,7 +155,7 @@ Takes customer deposit
 
 **Parameters**:
 
-`coin(**float**)` - a coin must be a float or an int. The argument will be rejected if it is not a value of British currency coins [reflected here.](./api/Statics.py) 
+`coin(float)` - a coin must be a float or an int. The argument will be rejected if it is not a value of British currency coins [reflected here.](./api/Statics.py) 
 
 **Returns**: `None`
 
@@ -202,7 +202,7 @@ Creates a new *Change* object
 
 **Parameters**:
 
-`change(**dict**)` - The dictionary reflects coin distribution in a customer change. The `key` would be a coin nominal, e.g. 0.2 and `value` is the number of coins in a change.
+`change(dict)` - The dictionary reflects coin distribution in a customer change. The `key` would be a coin nominal, e.g. 0.2 and `value` is the number of coins in a change.
 
 ###  get_total()
 
