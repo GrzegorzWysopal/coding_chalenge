@@ -1,0 +1,194 @@
+# Change Engine API
+
+ChangeEngine - use the API to manage change in your vending machine
+
+# Test it!
+
+main.py - is a file holding a simple test program that tries to imitate a vending machine's behaviour.
+The API is set up to use only British £ coins, which are 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01.
+
+## Configuration
+
+The program was run on:
+- Windows 11, Python 3.10.8
+- Oracle Linux 7.9
+
+To run the program, change the directory to the folder where main.py resides and type:
+
+SIDE NOTE: For the best experience, please maximise your terminal window
+
+```bash
+python3 main.py
+```
+or
+
+```bash
+python main.py
+```
+
+If you do not have Python installed on the machine, please download it from [here.](https://www.python.org/downloads/). You will not need any additional python libraries.
+
+Configuration:
+
+[config.py](./config.py) -  holds your configuration for initial coins in the machine and Vending machine products offering. The initial denomination of coins can not be changed, only the amount. You can also add or delete items from the `menu`; however, follow the existing syntax.
+
+If your setup is correct, upon running the test program, you should see the following:
+
+```bash
+Welcome to the vending machine
+Please select a product from the list:
+
+ ________________________________________________ 
+| Number: 1 | Name: Apple juice  | Price: 1      |
+| Number: 2 | Name: Orange juice | Price: 1.2    |
+| Number: 3 | Name: Pepsi        | Price: 1.51   |
+| Number: 4 | Name: Fanta        | Price: 1.5    |
+| Number: 5 | Name: RedBull      | Price: 2      |
+| Number: 6 | Name: Monster      | Price: 3      |
+ ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻ 
+
+Please select a number:
+```
+
+## How to interact with it?
+
+The program will respond to the keyboard input,
+follow instructions on the command line.
+
+## Exitting program
+
+The program runs continuously. To exit the program, either press `ctr + C` or kill the terminal
+
+
+# Reference:
+
+### Files included
+
+| File        | Description           | 
+| ------------- |:-------------:        | 
+|[ChangeEngine.py](./api/ChangeEngine.py)| API logic  | 
+|[Change.py](./api/Change.py)| Helper class to represent a money change  | 
+|[Statics.py](./api/Statics.py)| Holds allowed coins denomination | 
+|[config.py](./config.py)| Holds setup for initial coins in the machine and products available  | 
+|[main.py](./main.py)| Program to test the API  | 
+
+
+### Methods
+
+| Method        | Description           | 
+| ------------- |:-------------:        | 
+| [\__init__(init_coins)](#_init_init_coins)      | Creates a new `ChangeEngine` client | 
+| [return_change(*product_price*)](#return_changeproduct_price)      | Calculates and returnes change for customer      |
+| [insert_coin(*coin*)](#insert_coincoin) | Takes customer deposit      |
+| [get_user_balance()](#get_user_balance) | Returns balance deposited by the customer      |
+| [get_coins_status()](#get_coins_status) | Returns coins available in the machine      |
+| [get_coins_denomination()](#get_coins_status) | Returns available coins allowed denomination      |
+
+#### \__init__(init_coins)
+Creates a new *ChangeEngine* client
+
+Parameters:
+
+**init_coins**(dict) - It will initialise the number of coins in a machine. You must provide the amount for each coin stated in the [static file](./api/Statics.py) e.g.:
+
+```python
+initial_coins = {
+                  2: 100,
+                  1: 100,
+                  0.5: 100,
+                  0.2: 100,
+                  0.1: 100,
+                  0.05: 100,
+                  0.02: 100,
+                  0.01: 100
+                }
+```
+
+### return_change(**product_price**)
+
+Calculates and returnes change for a customer
+
+Parameters:
+
+product_price(float) - Product price must be a float or an int. The argument will be rejected if negative or greater than the user deposit.
+
+Returns:
+
+A List consisting of a [Change](./api/Change.py) object and bool value. The bool value is `True` if the change will be given. If `False`, this will indicate that there were not enough coins to return accurate change; hence, the Change object consists of the amount the user deposited. 
+
+
+
+###  insert_coin(**coin**)
+
+Takes customer deposit
+
+Parameters:
+
+coin(**float**) - coin must be a float or an int. The argument will be rejected if it is not a value of British currency coins [reflected here.](./api/Statics.py) 
+
+Returns: None
+
+###  get_user_balance()
+
+Returns balance deposited by the customer
+
+Parameters: None
+
+Returns: float
+
+###  get_coins_status()
+
+Returns coins available in the machine
+
+Parameters: None
+
+Returns: dict
+
+###  get_coins_denomination()
+
+Returns coins denomination allowed to use 
+
+Parameters: None
+
+Returns: list
+
+
+
+## Change object
+
+[class Change](./api/Change.py) - It creates an object which holds the total value of customer change. In addition, it stores information about specific coin distribution. ChangeEngine initialises the object. It is not designed to be created manually.  
+
+### Methods
+
+| Method        | Description           | 
+| ------------- |:-------------:        | 
+| [\__init__(change)](#_init_change)      | Creates a new `Change` instance | 
+| [get_total()](#get_total)     | Returns value of customer change      |
+| [get_change()](#get_change) | Returns customer change coin distribution     |
+
+#### \__init__(change)
+Creates a new *Change* object
+
+Parameters:
+
+**change**(dict) - The dictionary reflects coin distribution in a customer change. The `key` would be a coin nominal, e.g. 0.2 and `value` is the number of coins in a change.
+
+###  get_total()
+
+Returns value of customer change
+
+Parameters: None
+
+Returns: float
+
+###  get_change()
+
+Returns customer change coin distribution
+
+Parameters: None
+
+Returns: dict
+
+
+
+
