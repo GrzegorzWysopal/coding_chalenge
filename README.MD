@@ -6,6 +6,30 @@ ChangeEngine functionality - use the API to manage change in your vending machin
 - Register coins that have been deposited by a user.
 - Return the correct change to a user as coins when an order is received and remove the coins from the
 machine
+#
+Table of Contents:
+- [Change Engine  APi :moneybag: :pound:](#change-engine--api-moneybag-pound)
+- [Check out functionality](#check-out-functionality)
+  - [Setup](#setup)
+  - [Configuration:](#configuration)
+  - [Run](#run)
+  - [How to interact with it?](#how-to-interact-with-it)
+  - [Exitting program](#exitting-program)
+- [Reference:](#reference)
+    - [Files included](#files-included)
+- [Change engine API Reference](#change-engine-api-reference)
+    - [Methods](#methods)
+    - [<ins>\__init__(**init_coins**)</ins>](#ins_init_init_coinsins)
+    - [<ins>return_change(**product_price**)</ins>](#insreturn_changeproduct_priceins)
+    - [<ins>insert_coin(**coin**)</ins>](#insinsert_coincoinins)
+    - [<ins>get_user_balance()</ins>](#insget_user_balanceins)
+    - [<ins>get_coins_status()</ins>](#insget_coins_statusins)
+    - [<ins>get_coins_denomination()</ins>](#insget_coins_denominationins)
+  - [Change object](#change-object)
+    - [Methods](#methods-1)
+    - [<ins>\__init__(change)</ins>](#ins_init_changeins)
+    - [<ins>get_total()</ins>](#insget_totalins)
+    - [<ins>get_change()</ins>](#insget_changeins)
 
 # Check out functionality
 
