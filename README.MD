@@ -19,17 +19,17 @@ Table of Contents:
     - [Files included](#files-included)
 - [Change engine API Reference](#change-engine-api-reference)
     - [Methods](#methods)
-    - [<ins>\__init__(**init_coins**)</ins>](#ins_init_init_coinsins)
-    - [<ins>return_change(**product_price**)</ins>](#insreturn_changeproduct_priceins)
-    - [<ins>insert_coin(**coin**)</ins>](#insinsert_coincoinins)
-    - [<ins>get_user_balance()</ins>](#insget_user_balanceins)
-    - [<ins>get_coins_status()</ins>](#insget_coins_statusins)
-    - [<ins>get_coins_denomination()</ins>](#insget_coins_denominationins)
+    - [\__init__(**init_coins**)](#_init_init_coins)
+    - [return_change(**product_price**)](#return_changeproduct_price)
+    - [insert_coin(**coin**)](#insert_coincoin)
+    - [get_user_balance()](#get_user_balance)
+    - [get_coins_status()](#get_coins_status)
+    - [get_coins_denomination()](#get_coins_denomination)
   - [Change object](#change-object)
     - [Methods](#methods-1)
-    - [<ins>\__init__(change)</ins>](#ins_init_changeins)
-    - [<ins>get_total()</ins>](#insget_totalins)
-    - [<ins>get_change()</ins>](#insget_changeins)
+    - [\__init__(change)](#_init_change)
+    - [get_total()](#get_total)
+    - [get_change()](#get_change)
 
 # Check out functionality
 
@@ -115,7 +115,7 @@ The program runs continuously. To exit the program, either press `ctr + C` or ki
 | [get_coins_status()](#get_coins_status) | Returns coins available in the machine      |
 | [get_coins_denomination()](#get_coins_status) | Returns available coins allowed denomination      |
 
-### <ins>\__init__(**init_coins**)</ins>
+### \__init__(**init_coins**)
 Creates a new *ChangeEngine* client
 
 **Parameters**:
@@ -135,7 +135,7 @@ initial_coins = {
                 }
 ```
 
-### <ins>return_change(**product_price**)</ins>
+### return_change(**product_price**)
 
 Calculates and returnes change for a customer
 
@@ -149,7 +149,7 @@ A`List` consisting of a [Change](./api/Change.py) object and bool value. The boo
 
 
 
-###  <ins>insert_coin(**coin**)</ins>
+###  insert_coin(**coin**)
 
 Takes customer deposit
 
@@ -159,7 +159,7 @@ Takes customer deposit
 
 **Returns**: `None`
 
-###  <ins>get_user_balance()</ins>
+###  get_user_balance()
 
 Returns balance deposited by the customer
 
@@ -167,7 +167,7 @@ Returns balance deposited by the customer
 
 **Returns**: `float`
 
-###  <ins>get_coins_status()</ins>
+###  get_coins_status()
 
 Returns coins available in the machine
 
@@ -175,7 +175,7 @@ Returns coins available in the machine
 
 **Returns**: `dict`
 
-###  <ins>get_coins_denomination()</ins>
+###  get_coins_denomination()
 
 Returns coins denomination allowed to use 
 
@@ -197,14 +197,14 @@ Returns coins denomination allowed to use
 | [get_total()](#get_total)     | Returns value of customer change      |
 | [get_change()](#get_change) | Returns customer change coin distribution     |
 
-### <ins>\__init__(change)</ins>
+### \__init__(change)
 Creates a new *Change* object
 
 **Parameters**:
 
 `change(**dict**)` - The dictionary reflects coin distribution in a customer change. The `key` would be a coin nominal, e.g. 0.2 and `value` is the number of coins in a change.
 
-###  <ins>get_total()</ins>
+###  get_total()
 
 Returns value of customer change
 
@@ -212,7 +212,7 @@ Returns value of customer change
 
 **Returns**: `float`
 
-###  <ins>get_change()</ins>
+###  get_change()
 
 Returns customer change coin distribution
 
