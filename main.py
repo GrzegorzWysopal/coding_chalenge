@@ -30,17 +30,13 @@ def main():
         # Product choise approved, continue...
 
         display_balance(product, to_pay, change_client.get_user_balance())  
-        no_change = False
         while to_pay > change_client.get_user_balance():
             try:
                 coin = float(input("Please insert a coin... "))
                 change_client.insert_coin(coin)
 
-                if change_client.get_user_balance() > to_pay:
+                if change_client.get_user_balance() >= to_pay:
                     change = change_client.return_change(to_pay)
-                    break
-                elif change_client.get_user_balance() == to_pay:
-                    no_change = True
                     break
                 else:
                     clear_console()
@@ -52,29 +48,26 @@ def main():
         clear_console()
 
         # Change calculation finished, continue...
-
-        if no_change == True:
-            print("Thank you for shopping! \n")
+   
+        if change[1] == False:
+            print("Not enough coins in the machine\n" +
+                "Giving back your deposit: " +
+                "Coins received: ")
+            print(f" ___________")
+            for coin,amount in change[0].get_change().items():
+                position = f"|{coin} - {amount}x"
+                print(position + " " *(12 - len(position)) + "|" )
+            print(f" ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻")
         else:
-            if change[1] == False:
-                print("Not enough coins in the machine\n" +
-                    "Giving back your deposit: " +
-                    "Coins received: ")
-                print(f" ___________")
-                for coin,amount in change[0].get_change().items():
-                    position = f"|{coin} - {amount}x"
-                    print(position + " " *(12 - len(position)) + "|" )
-                print(f" ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻")
-            else:
-                print(f"Your change: {change[0].get_total():.2f} £")
-                print()
-                print("Coins received: ")
-                print(f" ___________")
-                for k,v in change[0].get_change().items():
-                    position = f"|{k} £ - {v}x"
-                    print(position + " " *(12 - len(position)) + "|" )
-                print(f" ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻")
-                print("Thank you for shopping !\n")
+            print(f"Your change: {change[0].get_total():.2f} £")
+            print()
+            print("Coins received: ")
+            print(f" ___________")
+            for k,v in change[0].get_change().items():
+                position = f"|{k} £ - {v}x"
+                print(position + " " *(12 - len(position)) + "|" )
+            print(f" ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻")
+            print("Thank you for shopping !\n")
 
         cont = input("Press Enter to continue...")
         clear_console()
