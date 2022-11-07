@@ -49,7 +49,7 @@ If you do not have Python installed on the machine, please download it from [her
 
 ## Run
 
-To run the program, change the directory to the folder where [**main.py**](./main.py) resides and type:
+To run the program, open terminal window change the directory to the folder where [**main.py**](./main.py) resides and type:
 
 **SIDE NOTE: For the best experience, please maximise your terminal window**
 
